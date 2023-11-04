@@ -1,0 +1,15 @@
+﻿@page "/catalog"
+@inject ICatalog catalog
+<h3>CatalogPage</h3>
+
+@foreach (var product in _products)
+{
+    Guid = @product.Id;
+    //<p>Id: @product.Id Name: @product.Name Price:@product.Price</p>
+
+    <p> <a href=/ProductInfo/@Guid>@product.Name</a></p>
+    
+    
+}
+
+
