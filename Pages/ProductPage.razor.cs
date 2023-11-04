@@ -16,9 +16,7 @@ namespace MySecondNiceBlazorApp.Pages
         {
             await base.OnInitializedAsync();
             _product = catalog.GetProductById(ProductId);
-            //_product =  catalog.
-                //new Product(Guid.NewGuid(), "iuji", 54 );
-            //_catalog.GetProductById(ProductId);
+
         }
     }
 }

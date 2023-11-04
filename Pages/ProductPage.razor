@@ -1,7 +1,25 @@
 ﻿@page "/ProductInfo/{ProductId:guid}" 
 @inject ICatalog catalog
-<h1>Страница товара</h1>
+<h4>Страница товара</h4>
 <div>@_product.Name  @_product.Price</div>
+
+@if (imageSource is null)
+{
+    imageSource = $"ProductImages/{_product.Name}.jpg";
+    <p>
+        <img class="productImg" src="@imageSource" />
+    </p>
+}
+
+
+}
+
+
+@code {
+
+    private string? imageSource;
+    
+}
 
 
 

@@ -12,11 +12,11 @@ namespace MySecondNiceBlazorApp.Models
         public InMemoryCatalog()
         {
           
-            _products.Add(new Product(Guid.NewGuid(), "product1", 40m));
-            _products.Add(new Product(Guid.NewGuid(), "product2", 50m));
-            _products.Add(new Product(Guid.NewGuid(), "product3", 60m));
-            _products.Add(new Product(Guid.NewGuid(), "product4", 70m));
-            _products.Add(new Product(Guid.NewGuid(), "product5", 80m));
+            _products.Add(new Product(Guid.NewGuid(), "bike1", 40m));
+            _products.Add(new Product(Guid.NewGuid(), "bike2", 50m));
+            _products.Add(new Product(Guid.NewGuid(), "bike3", 60m));
+            //_products.Add(new Product(Guid.NewGuid(), "product4", 70m));
+            //_products.Add(new Product(Guid.NewGuid(), "product5", 80m));
         }
 
 
@@ -50,7 +50,7 @@ namespace MySecondNiceBlazorApp.Models
                 if(product.Id == guid)
                     return product;
             }
-            return new Product(Guid.NewGuid(), "not found", 56);
+            return new Product(Guid.NewGuid(), "not found", 0);
         }
 
         //public void DeleteProduct(Guid guid)
