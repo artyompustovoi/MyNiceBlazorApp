@@ -1,0 +1,16 @@
+﻿@inject ICatalog catalog
+@page "/addProduct"
+<h3>AddNeqProductPage</h3>
+@* <InputText placeholder="Product name" @bind-Value="p.Name"></InputText>
+<InputNumber placeholder="Product price" @bind-Value="p.Price"></InputNumber>
+<InputText id="lastName" class="form-control" placeholder="Last Name" @bind-Value="p.Name"></InputText>
+<InputText id="lastName" class="form-control" placeholder="Last Name" @bind-Value="p.Name"></InputText>
+<MudButton OnClick="() => addProduct(p)"> </MudButton> *@
+
+<input type="text" placeholder="ghjk" @bind-value="p.Name" />
+@* <input type="number" placeholder="ghjk" @bind-value="p.Price" /> *@
+@* <MudButton OnClick="() => addProduct(p)"> </MudButton> *@
+
+@code {
+   Product p;
+}

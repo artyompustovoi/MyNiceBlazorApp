@@ -3,17 +3,17 @@ using System.Collections.Concurrent;
 
 namespace MySecondNiceBlazorApp.Pages
 {
-    public partial class CatalogPage
+    public partial class CartPage
     {
-        List<Product> _products = new List<Product>();
-        
-        
         protected override void OnInitialized()
         {
             base.OnInitialized();
             //
-            _products = catalog.GetProducts();
-            
+            _purchases = cart.getPurchases();
+
         }
+      
+        List<Product> _purchases;
+       
     }
 }

@@ -1,0 +1,25 @@
+﻿@* @page "/" *@
+@inject ICatalog catalog
+
+
+@if(product is not null){
+        imageSource = $"ProductImages/{product.Name}.jpg";
+        <a href=/ProductInfo/@product.Id>
+        <li>
+        <p> @product.Name  @product.Price </p>
+        @if (imageSource is not null)
+        {
+            <p>
+                <img class="productImg" src="@imageSource" />
+            </p>
+        }
+        </li>
+        </a>
+}
+
+
+@code {
+    [Parameter]
+    public Product product  { get; set; } 
+    private string? imageSource;
+}

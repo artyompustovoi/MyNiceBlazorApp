@@ -6,12 +6,12 @@ namespace MySecondNiceBlazorApp.Models
 {
     public class InMemoryCatalog : ICatalog
     {
-        ConcurrentBag<Product> _products=new ConcurrentBag<Product>();
+        List<Product> _products = new List<Product>();
         //ConcurrentDictionary<Guid, Product> _products = new ConcurrentDictionary<Guid, Product>();
 
         public InMemoryCatalog()
         {
-          
+
             _products.Add(new Product(Guid.NewGuid(), "bike1", 40m));
             _products.Add(new Product(Guid.NewGuid(), "bike2", 50m));
             _products.Add(new Product(Guid.NewGuid(), "bike3", 60m));
@@ -20,26 +20,15 @@ namespace MySecondNiceBlazorApp.Models
         }
 
 
-        public ConcurrentBag<Product> GetProducts()
+        public List<Product> GetProducts()
         {
             return _products;
         }
-        //public IActionResult CreateProduct(Product product)
-        //{
-        //    IActionResult result;
+        public void CreateProduct(Product product)
+        {
+            _products.Add(product);
 
-        //    try
-        //    {
-        //        _products.TryAdd(Guid.NewGuid(), product);
-        //        result = new CreatedResult(new Uri($"/add_prodoct/{product.Name}", UriKind.Relative), product);
-        //    }
-        //    catch (Exception exception)
-        //    {
-        //        result = new ObjectResult($"Error creating Product: {exception.Message}.");
-        //    }
-
-        //    return (result);
-        //}
+        }
 
 
 
@@ -47,7 +36,7 @@ namespace MySecondNiceBlazorApp.Models
         {
             foreach (var product in _products)
             {
-                if(product.Id == guid)
+                if (product.Id == guid)
                     return product;
             }
             return new Product(Guid.NewGuid(), "not found", 0);

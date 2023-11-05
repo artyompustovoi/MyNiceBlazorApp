@@ -12,5 +12,5 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 builder.Services.AddMudServices();
 
 builder.Services.AddScoped<ICatalog, InMemoryCatalog>();
-
+builder.Services.AddScoped<ICart, Cart>();
 await builder.Build().RunAsync();
