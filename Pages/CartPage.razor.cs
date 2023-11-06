@@ -15,5 +15,6 @@ namespace MySecondNiceBlazorApp.Pages
       
         List<Product> _purchases;
        
+
     }
 }

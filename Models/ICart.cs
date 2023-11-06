@@ -3,8 +3,9 @@
     public interface ICart
     {
         public void addProductToCart(Product purchase);
-        public void deletePurchase(Guid id);
+        public void deletePurchase(Product product);
         public List<Product> getPurchases();
+        
 
     }
 }

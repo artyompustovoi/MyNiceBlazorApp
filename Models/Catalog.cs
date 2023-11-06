@@ -1,6 +1,7 @@
 ﻿using MySecondNiceBlazorApp.Models;
 using System.Collections.Concurrent;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Components;
 
 namespace MySecondNiceBlazorApp.Models
 {
@@ -12,9 +13,9 @@ namespace MySecondNiceBlazorApp.Models
         public InMemoryCatalog()
         {
 
-            _products.Add(new Product(Guid.NewGuid(), "bike1", 40m));
-            _products.Add(new Product(Guid.NewGuid(), "bike2", 50m));
-            _products.Add(new Product(Guid.NewGuid(), "bike3", 60m));
+            _products.Add(new Product(Guid.NewGuid(), "bike1", 40m, 1));
+            _products.Add(new Product(Guid.NewGuid(), "bike2", 50m, 1));
+            _products.Add(new Product(Guid.NewGuid(), "bike3", 60m, 2));
             //_products.Add(new Product(Guid.NewGuid(), "product4", 70m));
             //_products.Add(new Product(Guid.NewGuid(), "product5", 80m));
         }
@@ -24,9 +25,11 @@ namespace MySecondNiceBlazorApp.Models
         {
             return _products;
         }
-        public void CreateProduct(Product product)
+        public EventCallback CreateProduct(Product product)
         {
+            product.Id = Guid.NewGuid();
             _products.Add(product);
+            return new EventCallback();
 
         }
 
@@ -39,7 +42,22 @@ namespace MySecondNiceBlazorApp.Models
                 if (product.Id == guid)
                     return product;
             }
-            return new Product(Guid.NewGuid(), "not found", 0);
+            return new Product(Guid.NewGuid(), "not found", 0, 1);
+        }
+        public List<Product> GetProductsByCategoryId(IEnumerable<int> categoryId)
+        {
+            List<Product> productsByCategory = new List<Product>();
+           
+            foreach (var product in _products)
+            {
+                foreach (var category in categoryId)
+                {
+                    if (product.categoryId == category)
+                        productsByCategory.Add(product);
+                }
+                      
+            }
+            return productsByCategory;
         }
 
         //public void DeleteProduct(Guid guid)

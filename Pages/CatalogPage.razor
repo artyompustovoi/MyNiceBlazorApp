@@ -2,26 +2,33 @@
 @inject ICatalog catalog
 @inject ICart cart
 <h3>CatalogPage</h3>
-<link href="css/app.css" rel="stylesheet" />
+<MudGrid>
+    <MudItem xs="12">
+        <MudSelect T="string" MultiSelection="true" SelectAll="true" SelectAllText="Select all Categories" 
+                   Label="Category" AdornmentIcon="@Icons.Material.Filled.Search" SelectedValuesChanged="OnSelectedValuesChanged">
+            @foreach (var con in categories.Select(x => x.CategoryName).Distinct())
+            {
+                <MudSelectItem T="string" Value="@con">@con</MudSelectItem>
+            }
+        </MudSelect>
 
 
+    </MudItem>
+    <MudItem xs="12">
+        <br /><br />
+     
+        <ul>
+            @foreach (var _product in prod)
+            {
+                <ProductCard product="@_product"></ProductCard>
+                <MudButton OnClick="()=> cart.addProductToCart(_product)">Add to cart</MudButton>
+            }
+        </ul>
 
-
-<ul>
-    @foreach (var _product in _products)
-    {
-        
-        <ProductCard product="@_product"></ProductCard>
-        <MudButton OnClick="()=> cart.addProductToCart(_product)">Add to cart</MudButton>
-        //cart.addProductToCart(@_product);
-        //<MudButton>Add to cart</MudButton>
-    }
-</ul>
-
-
+    </MudItem>
+</MudGrid>
 
 @code {
-    
   
+   
 }
-

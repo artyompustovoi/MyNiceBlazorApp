@@ -16,8 +16,9 @@ namespace MySecondNiceBlazorApp.Pages
         {
             await base.OnInitializedAsync();
             _product = catalog.GetProductById(ProductId);
-
+            imageSource = $"ProductImages/{_product.Name}.jpg";
         }
+
     }
 }
 

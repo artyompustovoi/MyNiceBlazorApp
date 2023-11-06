@@ -7,5 +7,10 @@
 }
 
 p {
-    color: red;
+    color: darkorange;
+}
+
+.head{
+    padding:1;
+    margin-top:1;
 }

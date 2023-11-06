@@ -1,15 +1,18 @@
 ﻿@page "/ProductInfo/{ProductId:guid}" 
 @inject ICatalog catalog
+@inject ICart cart
 <h4>Страница товара</h4>
 <div>@_product.Name  @_product.Price</div>
 
-@if (imageSource is null)
+@if (imageSource is not null)
 {
-    imageSource = $"ProductImages/{_product.Name}.jpg";
+    
     <p>
         <img class="productPageImg" src="@imageSource" />
     </p>
+    
 }
+<MudButton OnClick="()=> cart.addProductToCart(_product)">Add to cart</MudButton>
 
 
 

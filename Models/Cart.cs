@@ -2,6 +2,7 @@
 {
     public class Cart : ICart
     {
+
         List<Product> _purchases = new();
         public void addProductToCart(Product purchase)
         {
@@ -10,17 +11,9 @@
 
        
 
-        public void deletePurchase(Guid id)
+        public void deletePurchase(Product product)
         {
-
-            foreach (var purchase in _purchases)
-            {
-                if (purchase.Id == id)
-                {
-                    _purchases.Remove(purchase);
-                }
-            }
-
+            _purchases.Remove(product);
         }
         public List<Product> getPurchases()
         {

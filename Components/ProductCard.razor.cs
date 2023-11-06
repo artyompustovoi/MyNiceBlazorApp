@@ -12,7 +12,7 @@ namespace MySecondNiceBlazorApp.Components
         string showCard(Guid id)
         {
             Product product = catalog.GetProductById(id);
-            return product.Name + " " + product.Price + " ";
+            return product.Name + " " + product.Price + " " + product.categoryId;
         }
     }
 }

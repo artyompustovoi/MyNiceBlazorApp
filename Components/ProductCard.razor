@@ -6,7 +6,7 @@
         imageSource = $"ProductImages/{product.Name}.jpg";
         <a href=/ProductInfo/@product.Id>
         <li>
-        <p> @product.Name  @product.Price </p>
+            <p> @product.Name  @product.Price @product.categoryId</p>
         @if (imageSource is not null)
         {
             <p>
