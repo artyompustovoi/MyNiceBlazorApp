@@ -1,6 +1,7 @@
 ﻿@page "/catalog"
-@inject ICatalog catalog
+@* @inject ICatalog catalog *@
 @inject ICart cart
+@inject NiceBikeShop.HttpApiClient.NiceBikeShopClient apiClient
 <h3>CatalogPage</h3>
 <MudGrid>
     <MudItem xs="12">
@@ -20,8 +21,10 @@
         <ul>
             @foreach (var _product in prod)
             {
-                <ProductCard product="@_product"></ProductCard>
-                <MudButton OnClick="()=> cart.addProductToCart(_product)">Add to cart</MudButton>
+                <li><ProductCard product="@_product"></ProductCard></li>
+                
+               
+                
             }
         </ul>
 

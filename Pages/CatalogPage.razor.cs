@@ -1,18 +1,22 @@
-﻿using NiceBikeShopBlazorFrontend.Models;
+﻿using NiceBikeShopBackend.Data;
+using NiceBikeShopBlazorFrontend.Models;
 using System.Collections.Concurrent;
+using System.Security.Cryptography;
+using Product = NiceBikeShopBackend.Data.Product;
 
 namespace NiceBikeShopBlazorFrontend.Pages
 {
     public partial class CatalogPage
     {
-        List<Product> _products = new List<Product>();
+        private IReadOnlyList<Product>? _products = null;
 
 
-        protected override void OnInitialized()
+        protected override async Task OnInitializedAsync()
         {
             base.OnInitialized();
-
-            _products = catalog.GetProducts();
+            //
+            _products = await apiClient.GetProductsAsync();
+        
 
         }
         private void OnSelectedValuesChanged(IEnumerable<string> values)

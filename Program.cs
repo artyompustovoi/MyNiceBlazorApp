@@ -15,7 +15,7 @@ builder.Services.AddSingleton(sp => new HttpClient()
 });
 
 builder.Services.AddSingleton(provider => 
-new NiceBikeShopClient(provider.GetRequiredService<HttpClient>(), "https://localhost:5001"));
+new NiceBikeShopClient(provider.GetRequiredService<HttpClient>(), "https://localhost:7287"));
 
 builder.Services.AddMudServices();
 

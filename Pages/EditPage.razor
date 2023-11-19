@@ -1,5 +1,5 @@
 ﻿@inject ICatalog catalog
-@page "/addProduct"
+@page "/editProduct/{ProductId:guid}"
 @using System.ComponentModel.DataAnnotations
 @using Product = NiceBikeShopBackend.Data.Product;
 @inject NiceBikeShop.HttpApiClient.NiceBikeShopClient apiClient
@@ -17,12 +17,12 @@
                     @bind-Value="p.Name" For="@(() =>  model.Productname)" /> *@
 
                     <MudTextField Label="Product name" Class="mt-3"
-                    @bind-Value="p.Name" For="@(() =>  model.Productname)" />
+                    @bind-Value="_product.Name" For="@(() =>  model.Productname)" />
 
                     <MudTextField Label="Price" Class="mt-3"
-                    @bind-Value="p.Price" For="@(() =>  model.Price)" />
+                    @bind-Value="_product.Price" For="@(() =>  model.Price)" />
                     <MudTextField Label="Category" HelperText="Choose a strong password" Class="mt-3"
-                    @bind-Value="p.categoryId" For="@(() => model.Category)" />
+                    @bind-Value="_product.categoryId" For="@(() => model.Category)" />
                     <MudFileUpload T="IBrowserFile" FilesChanged="UploadFiles">
                         <ButtonTemplate>
                             <MudFab HtmlTag="label"
@@ -101,11 +101,11 @@
 
     }
 
-    private async Task OnValidSubmit(EditContext context)
+    private void OnValidSubmit(EditContext context)
     {
         success = true;
         StateHasChanged();
-        await apiClient.AddNewProducAsync(p);
+        apiClient.EditProductAsync(_product);
     }
     Product p = new Product(Guid.NewGuid(), "Bike", 0, 0);
     IList<IBrowserFile> files = new List<IBrowserFile>();
