@@ -1,4 +1,4 @@
-﻿namespace MySecondNiceBlazorApp.Models
+﻿namespace NiceBikeShopBlazorFrontend.Models
 {
     public class Cart : ICart
     {
@@ -9,7 +9,7 @@
             _purchases.Add(purchase);
         }
 
-       
+
 
         public void deletePurchase(Product product)
         {

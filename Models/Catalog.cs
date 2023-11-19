@@ -1,9 +1,8 @@
-﻿using MySecondNiceBlazorApp.Models;
-using System.Collections.Concurrent;
+﻿using System.Collections.Concurrent;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Components;
 
-namespace MySecondNiceBlazorApp.Models
+namespace NiceBikeShopBlazorFrontend.Models
 {
     public class InMemoryCatalog : ICatalog
     {
@@ -47,7 +46,7 @@ namespace MySecondNiceBlazorApp.Models
         public List<Product> GetProductsByCategoryId(IEnumerable<int> categoryId)
         {
             List<Product> productsByCategory = new List<Product>();
-           
+
             foreach (var product in _products)
             {
                 foreach (var category in categoryId)
@@ -55,7 +54,7 @@ namespace MySecondNiceBlazorApp.Models
                     if (product.categoryId == category)
                         productsByCategory.Add(product);
                 }
-                      
+
             }
             return productsByCategory;
         }

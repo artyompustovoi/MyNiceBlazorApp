@@ -1,6 +1,6 @@
-﻿using MySecondNiceBlazorApp.Models;
+﻿using NiceBikeShopBlazorFrontend.Models;
 
-namespace MySecondNiceBlazorApp.Pages
+namespace NiceBikeShopBlazorFrontend.Pages
 {
     public partial class AddNeqProductPage
     {

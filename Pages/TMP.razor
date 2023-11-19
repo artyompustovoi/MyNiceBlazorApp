@@ -1,0 +1,73 @@
+﻿@page "/tmp"
+@using NiceBikeShopBackend.Data
+@using System.ComponentModel.DataAnnotations
+@inject NiceBikeShop.HttpApiClient.NiceBikeShopClient apiClient
+<h3>TMP</h3>
+
+<ul>
+    <p>testmark</p>
+    @if (_purchases is not null)
+    {
+
+        @foreach (var _product in @_purchases)
+        {
+
+            <p>@_product.Name.ToString()  @_product.Id</p>
+
+
+
+
+        }
+    }
+    else
+    {
+        <p>Загрузка</p>
+    }
+    @if (_product is not null)
+    {
+        <p>@_product.Name   @_product.Name</p>
+    }
+
+
+
+</ul>
+
+@code {
+    RegisterAccountForm model = new RegisterAccountForm();
+    bool success;
+
+    public class RegisterAccountForm
+    {
+        //
+        //[StringLength(8, ErrorMessage = "Name length can't be more than 8.")]
+        [Required]
+        public string Productname { get; set; }
+
+        [Required]
+        public decimal Price { get; set; }
+
+        [Required]
+        //[StringLength(30, ErrorMessage = "Password must be at least 8 characters long.", MinimumLength = 8)]
+        public int Category { get; set; }
+
+        public RegisterAccountForm()
+        {
+            Productname = "Bike";
+        }
+
+    }
+
+    private async Task OnValidSubmit(EditContext context)
+    {
+        success = true;
+        StateHasChanged();
+        //await apiClient.EditProductAsync();
+    }
+    NiceBikeShopBackend.Data.Product p = new NiceBikeShopBackend.Data.Product();
+    IList<IBrowserFile> files = new List<IBrowserFile>();
+    private void UploadFiles(IBrowserFile file)
+    {
+        files.Add(file);
+        //TODO upload the files to the server
+    }
+}

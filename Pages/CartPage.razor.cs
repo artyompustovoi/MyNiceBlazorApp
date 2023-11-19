@@ -1,7 +1,7 @@
-﻿using MySecondNiceBlazorApp.Models;
+﻿using NiceBikeShopBlazorFrontend.Models;
 using System.Collections.Concurrent;
 
-namespace MySecondNiceBlazorApp.Pages
+namespace NiceBikeShopBlazorFrontend.Pages
 {
     public partial class CartPage
     {

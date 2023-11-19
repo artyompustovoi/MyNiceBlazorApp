@@ -14,6 +14,11 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.1" />
 		<PackageReference Include="MudBlazor" Version="6.0.13" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\NiceBikeShop.HttpApiClient\NiceBikeShop.HttpApiClient.csproj" />
+	  <ProjectReference Include="..\NiceBikeShop.Models\NiceBikeShop.Models.csproj" />
+	</ItemGroup>
 	
 	
 </Project>

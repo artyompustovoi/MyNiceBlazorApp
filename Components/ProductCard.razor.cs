@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
-using MySecondNiceBlazorApp.Models;
+using NiceBikeShopBlazorFrontend.Models;
 
-namespace MySecondNiceBlazorApp.Components
+namespace NiceBikeShopBlazorFrontend.Components
 {
     public partial class ProductCard
     {

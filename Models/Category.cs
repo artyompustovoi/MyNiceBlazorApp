@@ -1,4 +1,4 @@
-﻿namespace MySecondNiceBlazorApp.Models
+﻿namespace NiceBikeShopBlazorFrontend.Models
 {
     public class Category
     {

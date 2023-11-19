@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using System.Collections.Concurrent;
 
-namespace MySecondNiceBlazorApp.Models
+namespace NiceBikeShopBlazorFrontend.Models
 {
     public interface ICatalog
     {
